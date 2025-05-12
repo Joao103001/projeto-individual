@@ -1,0 +1,194 @@
+/* Remove margens define a caixa como border-box */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif; 
+}
+
+/* Define que ocupe 100% da altura da tela */
+body, html {
+  height: 100%;
+}
+
+/* Estiliza o cabeçalho principal */
+header {
+  position: relative; 
+  height: 100vh; 
+  color: white; 
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://lncimg.lance.com.br/cdn-cgi/image/width=950,quality=75,fit=pad,format=webp/uploads/2023/10/posada_boca_juniors_palmeiras_2023-aspect-ratio-512-320-2.jpg');
+  background-size: cover; 
+  background-position: center; 
+  filter: blur(2.5px); 
+  z-index: -1; 
+}
+
+/*barra de navegação */
+.navbar {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 20px; 
+  top: 50%;
+  justify-self: center;
+  left: 50%;
+}
+
+
+.navbar ul {
+  list-style: none; 
+  display: flex; 
+  gap: 20px; 
+}
+
+
+.navbar a {
+  color: white; 
+  text-decoration: none; 
+  font-weight: bold; 
+}
+
+/* Define o tamanho da logo */
+.logo {
+  width: 80px;
+}
+
+/* Centraliza o texto principal na tela */
+.hero {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  text-align: center; 
+}
+
+/* Estilo do título principal */
+.hero h1 {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+/* Estilo do subtítulo */
+.hero p {
+  font-size: 24px;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.section {
+  background-color: #1f5d30;
+  padding: 40px 20px;
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.content h1 {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.history {
+  display: flex;
+  gap: 70px;
+  align-items: flex-start;
+}
+
+.history img {
+  max-width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.history p {
+  max-width: 400px;
+  font-size: 16px;
+  line-height: 1.6;
+  border-left: 3px solid #ccc;
+  padding-left: 15px;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.section {
+  background-color: #1f5d30; /* Verde Palmeiras */
+  padding: 40px 20px;
+  color: white;
+  clip-path: polygon(0 0, 95% 0, 100% 100%, 0% 100%);
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  padding-bottom: 30px;
+  font-weight: bold;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #d4ffb2;
+}
+
+.parmalat h1 {
+  font-family: 'Courier New', monospace;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.history img {
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.history p {
+  max-width: 400px;
+  font-size: 17px;
+  line-height: 1.6;
+  padding-left: 20px;
+  border-left: 3px solid #ccc;
+}
