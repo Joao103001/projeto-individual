@@ -1,62 +1,61 @@
-/* Remove margens e preenchimentos padrão dos elementos, define a caixa como border-box */
+/* Remove margens define a caixa como border-box */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif; /* Define a fonte padrão */
+  font-family: Arial, sans-serif; 
 }
 
-/* Define que o body e o html ocupem 100% da altura da tela */
+/* Define que ocupe 100% da altura da tela */
 body, html {
   height: 100%;
 }
 
 /* Estiliza o cabeçalho principal */
 header {
-  position: relative; /* Permite posicionar elementos filhos com position absolute */
-  height: 100vh; /* Ocupa 100% da altura da viewport */
-  color: white; /* Cor do texto */
-  overflow: hidden; /* Garante que nada ultrapasse os limites do header */
+  position: relative; 
+  height: 100vh; 
+  color: white; 
+  overflow: hidden;
 }
 
-/* Adiciona uma imagem de fundo borrada por trás do conteúdo do header */
 header::before {
-  content: ""; /* Necessário para que o ::before funcione */
-  position: absolute; /* Posiciona a imagem sobre todo o header */
+  content: "";
+  position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-image: url('https://lncimg.lance.com.br/cdn-cgi/image/width=950,quality=75,fit=pad,format=webp/uploads/2023/10/posada_boca_juniors_palmeiras_2023-aspect-ratio-512-320-2.jpg');
-  background-size: cover; /* Faz a imagem cobrir todo o espaço */
-  background-position: center; /* Centraliza a imagem */
-  filter: blur(2.5px); /* Aplica o desfoque (blur) */
-  z-index: -1; /* Coloca a imagem atrás do conteúdo do header */
+  background-size: cover; 
+  background-position: center; 
+  filter: blur(2.5px); 
+  z-index: -1; 
 }
 
-/* Estiliza a barra de navegação */
+/*barra de navegação */
 .navbar {
-  display: flex; /* Exibe os itens em linha */
-  justify-content: space-between; /* Espaço entre os lados da navbar */
-  align-items: center; /* Alinha os itens verticalmente ao centro */
-  padding: 20px; /* Espaçamento interno */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 20px; 
   top: 50%;
   justify-self: center;
   left: 50%;
 }
 
-/* Remove os estilos padrão da lista e alinha os itens da navbar */
+
 .navbar ul {
-  list-style: none; /* Remove marcadores de lista */
-  display: flex; /* Exibe os itens da lista em linha */
-  gap: 20px; /* Espaço entre os itens */
+  list-style: none; 
+  display: flex; 
+  gap: 20px; 
 }
 
-/* Estilo dos links da navbar */
+
 .navbar a {
-  color: white; /* Cor do texto */
-  text-decoration: none; /* Remove sublinhado */
-  font-weight: bold; /* Deixa o texto em negrito */
+  color: white; 
+  text-decoration: none; 
+  font-weight: bold; 
 }
 
 /* Define o tamanho da logo */
@@ -66,11 +65,11 @@ header::before {
 
 /* Centraliza o texto principal na tela */
 .hero {
-  position: absolute; /* Posiciona em relação ao header */
-  top: 50%; /* Move para o meio da tela (vertical) */
-  left: 50%; /* Move para o meio da tela (horizontal) */
-  transform: translate(-50%, -50%); /* Ajusta exatamente para o centro */
-  text-align: center; /* Centraliza o texto */
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  text-align: center; 
 }
 
 /* Estilo do título principal */
@@ -82,4 +81,114 @@ header::before {
 /* Estilo do subtítulo */
 .hero p {
   font-size: 24px;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.section {
+  background-color: #1f5d30;
+  padding: 40px 20px;
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.content h1 {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.history {
+  display: flex;
+  gap: 70px;
+  align-items: flex-start;
+}
+
+.history img {
+  max-width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.history p {
+  max-width: 400px;
+  font-size: 16px;
+  line-height: 1.6;
+  border-left: 3px solid #ccc;
+  padding-left: 15px;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.section {
+  background-color: #1f5d30; /* Verde Palmeiras */
+  padding: 40px 20px;
+  color: white;
+  clip-path: polygon(0 0, 95% 0, 100% 100%, 0% 100%);
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  padding-bottom: 30px;
+  font-weight: bold;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #d4ffb2;
+}
+
+.parmalat h1 {
+  font-family: 'Courier New', monospace;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.history img {
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.history p {
+  max-width: 400px;
+  font-size: 17px;
+  line-height: 1.6;
+  padding-left: 20px;
+  border-left: 3px solid #ccc;
 }
