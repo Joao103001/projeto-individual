@@ -107,7 +107,7 @@ header::before {
 
 .history img {
   max-width: 380px;
-  border-radius: 10px;
+  border-radius: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -171,26 +171,66 @@ body {
   color: white;
   font-size: 0.9em;
 }
+.desk{
+display: flex;
+justify-content: right;
+align-items: end;
+  
+}
 .video1 {
-margin-left: 360px;
+margin-left: 50px;
+display: flex;
+order: 2;
 }
+.history{
+  display: flex;
+justify-content: right;
+align-items: end;
+}
+.video2{
+margin-left: 50px;
+display: flex;
+order: 2;
+}
+.recente {
+ display: flex;
+justify-content: right;
+align-items: end;
+}
+
+.his {
+  display: flex;
+justify-content: right;
+align-items: flex-end;
+width: 50%;
+}
+
+.video3{
+margin-left: 50px;
+display: flex;
+order: 2;
+}
+
+.his {
+  display: flex;
+  gap: 70px;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.his img {
+  max-width: 380px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
 .historia3 {
-  background-color: #1f5c2e;
+  background-color: #1a6532;
+  padding: 40px 20px;
   color: white;
-  padding: 30px;
-  margin: 20px;
-  border-radius: 10px;
-}
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);}
 
-.imagem-recente {
-  max-width: 100%;
-  height: auto;
-  max-height: 200px;
-  border-radius: 8px;
-}
-
-.texto-recente {
-  margin-top: 15px;
-  font-size: 16px;
-  line-height: 1.6;
+html {
+  scroll-behavior: smooth;
 }

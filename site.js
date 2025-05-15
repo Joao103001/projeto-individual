@@ -26,3 +26,6 @@ alert('senha valida')
     } else {
         alert('insira uma senha valida')
     }}
+    function name(params) {
+        
+    }
