@@ -20,6 +20,7 @@
            <li><a href="#titulos">Títulos nacionais</a></li>
             <li><a href="#internacionais">Títulos internacionais</a></li>
             <li><a href="#login">login</a></li>
+            <li><a href="#cadastro">cadastro</a></li>
         </ul>
       </div>
       <div class="logo-container">
@@ -34,6 +35,9 @@
 
   <!-- HISTÓRIA 1 -->
   <div class="historia1" id="historia">
+     <div class="logo-container1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png" alt="Palmeiras Logo" class="logo" />
+      </div>
     <div class="content">
       <h1>Início</h1>
       <div class="history">
@@ -56,6 +60,9 @@
 
   <!-- HISTÓRIA 2 -->
   <div class="historia2">
+     <div class="logo-container1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png" alt="Palmeiras Logo" class="logo" />
+      </div>
     <div class="content">
       <h1>Era Parmalat</h1>
       <div class="history">
@@ -76,6 +83,9 @@
 
   <!-- HISTÓRIA 3 -->
   <div class="historia3">
+     <div class="logo-container1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png" alt="Palmeiras Logo" class="logo" />
+      </div>
     <div class="content">
       <h1>Dias atuais</h1>
       <div class="history">
@@ -96,6 +106,9 @@
 
   <!-- Artilheiros -->
   <section class="container2"  id="artilheiros">
+     <div class="logo-container1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png" alt="Palmeiras Logo" class="logo" />
+      </div>
     <h1 class="titulo">Artilheiros</h1>
     <div class="jogadores">
       <div class="jogador1">
@@ -121,6 +134,9 @@
 
   <!-- Assistentes -->
   <section class="container2" id="assistentes">
+     <div class="logo-container1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png" alt="Palmeiras Logo" class="logo" />
+      </div>
     <h1 class="titulo">Assistentes</h1>
     <div class="jogadores">
       <div class="jogador">
@@ -145,6 +161,9 @@
   </section>
 <!-- tecnicos -->
     <section class="container2" id="tecnicos">
+       <div class="logo-container1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png" alt="Palmeiras Logo" class="logo" />
+      </div>
     <h1 class="titulo">Tecnicos</h1>
     <div class="jogadores">
       <div class="jogador">
@@ -169,6 +188,9 @@
   </section>
 <!-- titulos nacionais -->
      <section class="container2" id="titulos">
+       <div class="logo-container1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png" alt="Palmeiras Logo" class="logo" />
+      </div>
     <h1 class="titulo">Títulos nacionais</h1>
     <div class="jogadores">
       <div class="jogador">
@@ -191,6 +213,9 @@
 
 <!-- titulos internacionais -->
    <section class="container2" id="internacionais">
+     <div class="logo-container1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png" alt="Palmeiras Logo" class="logo" />
+      </div>
     <h1 class="titulo">Títulos internacionais</h1>
     <div class="jogadores">
       <div class="jogador">
@@ -215,8 +240,11 @@
 
 <!-- login -->
  <section class="container2" id="login">
-    
+    <div class="logo-container1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png" alt="Palmeiras Logo" class="logo" />
+      </div>
     <h2 id="title">Login</h2>
+   <h4>Faça o login para fazer um quiz,<br> e ver quanto você conhece o Palmeiras</h4>
      <div class="usuario">
        <input id="username" placeholder="Usuário"><br><br>
       </div>
@@ -225,8 +253,27 @@
   
    <div class="botao"> <button onclick="FazerLogin()">Entrar</button></div>
     
-    <p><a href="#" onclick="toggle(this)">Não tem conta? Cadastre-se</a></p>
+    <p><a href="#cadastro" onclick="toggle(this)">Não tem conta? Cadastre-se</a></p>
   
+  </section> 
+
+<!-- cadastro -->
+    <section class="container2" id="cadastro">
+       <div class="logo-container1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png" alt="Palmeiras Logo" class="logo" />
+      </div>
+    <h2>Cadastro</h2>
+     <div class="usuario">
+    <input id="newUsername" placeholder="Usuário (email)" />
+    </div>
+ <div class="senha">
+    <input id="newPassword" type="password" placeholder="Senha" />
+    </div>
+ <div class="senha1"> 
+    <input id="newPassword2" type="password" placeholder="Confirme a senha" />
+    </div>
+    <div class="botao"> <button onclick="FazerCadastro()">Cadastrar</button></div>
+  <p><a href="#login" onclick="mostrarLogin()">Já tem conta? Faça login</a></p>
   </section>
 </body>
 </html>
