@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="dash.css">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="dashboard" style="display: none;">
+ <div class= "Ttulo"><h2>Resultado do Quiz</h2></div>
+<div class="graficos">
+  <div class="Pizza">
+    <canvas id="graficoPizza"></canvas>
+    </div>
+     <div class="barras">
+    <canvas id="graficoBarras" style="margin-top: 40px;"></canvas>
+  </div>
+</div>
+  <p id="feedback" style="text-align: center; font-weight: bold; margin-top: 20px;"></p>
+  <div style="text-align: center; margin-top: 20px;">
+    <!-- <button onclick="recomecarQuiz()">Refazer Quiz</button> -->
+  </div>
+
+</div>
+
+</body>
+</html>
+<script>
+function mostrarResultadoGrafico(acertos, total) {
+    // Pega a pontuação do sessionStorage
+    var acertos = Number(sessionStorage.getItem("acertos"));
+    var total = 5; 
+    var erros = total - acertos;
+    var percentual = Math.round((acertos / total) * 100);
+
+  // gráfico de pizza para dash
+  var canvasPizza = document.getElementById('graficoPizza').getContext('2d');
+  new Chart(canvasPizza, {
+    type: 'doughnut',
+    data: {
+      labels: ['Acertos', 'Erros'],
+      datasets: [{
+        data: [acertos, erros],
+        backgroundColor: ['#4CAF50', '#F44336']
+      }]
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Distribuição de Acertos e Erros'
+        }
+      }
+    }
+  });
+
+  // gráfico de barras para dahs
+  var canvasBarras = document.getElementById('graficoBarras').getContext('2d');
+  new Chart(canvasBarras, {
+    type: 'bar',
+    data: {
+      labels: ['Acertos', 'Erros'],
+      datasets: [{
+        label: 'Quantidade',
+        data: [acertos, erros],
+        backgroundColor: ['#4CAF50', '#F44336']
+      }]
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Comparação entre Acertos e Erros'
+        },
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          precision: 0
+        }
+      }
+    }
+  });
+
+ 
+  document.getElementById('dashboard').style.display = 'block';
+}
+
+// faz a dash com o total de acertos comparado com quantidade de perguntas
+mostrarResultadoGrafico();
+
+</script>

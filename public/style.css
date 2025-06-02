@@ -1,0 +1,426 @@
+/* Remove margens define a caixa como border-box */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Define que ocupe 100% da altura da tela */
+body, html {
+  height: 100%;
+}
+
+/* Estiliza o cabeçalho principal */
+header {
+  position: relative;
+  height: 100vh;
+  color: white;
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://lncimg.lance.com.br/cdn-cgi/image/width=950,quality=75,fit=pad,format=webp/uploads/2023/10/posada_boca_juniors_palmeiras_2023-aspect-ratio-512-320-2.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(3.5px);
+  z-index: -1;
+}
+
+/* Barra de navegação */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: absolute;
+  width: 100%;
+  top: 20px; /* Ajuste a distância do topo da tela */
+}
+
+/* Logo */
+.logo-container {
+  background-image: url('../imagens/Palmeiras_logo.svg.webp');
+  z-index: 99;
+  margin-left: auto; 
+}
+
+/* Menu */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logo {
+  width: 80px;
+}
+
+/* Centraliza o texto principal na tela */
+.hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Estilo do título principal */
+.hero h1 {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+/* Estilo do subtítulo */
+.hero p {
+  font-size: 24px;
+}
+
+/* Estilos adicionais para a seção de história */
+.historia1, .historia2 {
+  background-color: #1f5d30;
+  padding: 40px 20px;
+  color: white;
+  /* clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%); */
+  z-index: 2;
+}
+
+.historia1 {
+  /* clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%); */
+  z-index: 2;
+}
+
+.history {
+  display: flex;
+  gap: 70px;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.history img {
+  max-width: 380px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  background-image: url('../imagens/05.webp.começo.webp');
+}
+
+.history p {
+  max-width: 400px;
+  font-size: 16px;
+  line-height: 1.6;
+  border-left: 3px solid #ccc;
+  padding-left: 15px;
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+   height: 100%;
+}
+
+.container2 {
+  background-color: #1a6532;
+  color: white;
+  padding: 20px;
+   height: 100vh;
+  width: 100%;
+  /*max-width: 1000px;*/
+  margin: 40px auto;
+  border-radius: 10px;
+  position: relative;
+ /* clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);*/
+ z-index: 2;
+}
+
+.titulo {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.jogadores {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.jogador {
+  text-align: center;
+}
+
+.jogador img {
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.jogador h2 {
+  color: #b3f7d4;
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.jogador p {
+  color: white;
+  font-size: 0.9em;
+}
+.desk{
+display: flex;
+justify-content: right;
+align-items: end;
+  
+}
+.video1 {
+margin-left: 50px;
+display: flex;
+order: 2;
+}
+.history{
+  display: flex;
+justify-content: right;
+align-items: end;
+}
+.video2{
+margin-left: 50px;
+display: flex;
+order: 2;
+}
+.recente {
+ display: flex;
+justify-content: right;
+align-items: end;
+}
+
+.his {
+  display: flex;
+justify-content: right;
+align-items: flex-end;
+width: 50%;
+}
+
+.video3{
+margin-left: 50px;
+display: flex;
+order: 2;
+}
+
+.his {
+  display: flex;
+  gap: 70px;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.his img {
+  max-width: 380px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.historia3 {
+  background-color: #1a6532;
+  padding: 40px 20px;
+  color: white;
+  /* clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%); */
+z-index: 2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* login */
+
+.usuario input{
+display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 300px;     
+  height: 50px;    
+  margin: 10px auto;
+  text-align: center;
+}
+.senha input {
+display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 300px;     
+  height: 50px;    
+  margin: 10px auto;
+  text-align: center;
+}
+.senha1 input {
+display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 300px;     
+  height: 50px;    
+  margin: 10px auto;
+  text-align: center;
+}
+
+.botao button {
+display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 150px;     
+  height: 50px;    
+  margin: 10px auto;
+  text-align: center;
+}
+.logo-container1{
+  display: flex;
+  justify-content: flex-end;
+  /* background-image: url('../imagens/Palmeiras_logo.svg.webp'); */
+}
+h1 {
+      text-align: center;
+    }
+
+    /* quiz */
+    * {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container do quiz */
+.quiz-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #004d00; 
+  color: #f0f0f0;
+  border-radius: 12px;
+  padding: 30px 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+
+}
+
+/* Pergunta */
+.pergunta h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Contêiner das respostas */
+.respostas {
+  display: flex;
+  /* flex-direction: column; */
+  gap: 15px;
+  display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+
+/* Botões das respostas */
+.resposta-btn {
+  background-color: #007a00; 
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  box-shadow: 0 4px 8px rgba(0, 122, 0, 0.4);
+  
+}
+
+.resposta-btn:hover:not(:disabled) {
+  background-color: #00b300;
+  transform: scale(1.05);
+}
+
+.resposta-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Botão próxima */
+.proxima {
+  display: block;
+  margin: 30px auto 0 auto;
+  padding: 14px 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background-color: #00b300;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 179, 0, 0.6);
+  transition: background-color 0.3s ease, transform 0.15s ease;
+}
+
+.proxima:hover {
+  background-color: #008f00;
+  transform: scale(1.05);
+}
+
+/* Resultado final */
+.resultado h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 20px;
+  color: #d4af37; 
+  text-shadow: 1px 1px 5px #6b5700;
+}
+
+
+.resposta-btn[style*="background-color: green"] {
+  background-color: #28a745 !important; 
+  color: white;
+  box-shadow: 0 4px 10px #1e7e34;
+}
+
+.resposta-btn[style*="background-color: red"] {
+  background-color: #dc3545 !important; 
+  color: white;
+  box-shadow: 0 4px 10px #a71d2a;
+}
+
+
+.quiz-container {
+  padding: 20px;
+  margin: 20px 10px;
+  
+}
+
+  .resposta-btn {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .proxima {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+.containerquiz1{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+.logoh1{
+background-image: url('../imagens/05.webp.começo.webp');
+
+
+}

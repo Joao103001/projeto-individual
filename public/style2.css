@@ -1,0 +1,144 @@
+/* Não usar pure white or pure black: https://uxplanet.org/basicdesign-never-use-pure-black-in-typography-36138a3327a6 */
+/* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
+
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #001a00;
+  color: #f0f0f0;
+  padding: 20px;
+}
+
+/* Container geral */
+#pontuacaoEJogo {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #004d00;
+  border-radius: 12px;
+  padding: 30px 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Botão iniciar */
+#btnIniciarQuiz {
+  display: block;
+  margin: 20px auto;
+  padding: 14px 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background-color: #00b300;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 179, 0, 0.6);
+  transition: background-color 0.3s ease, transform 0.15s ease;
+}
+#btnIniciarQuiz:hover {
+  background-color: #008f00;
+  transform: scale(1.05);
+}
+
+/* Seções de pontuação e jogo */
+ #pontuacao,
+#jogo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#pontuacaoFinalJogo {
+  margin-top: 10px;
+} 
+
+/* Pergunta */
+#perguntaDaQuestaoAtual {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Opções */
+#opcoes span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.option {
+  background-color: #007a00;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  box-shadow: 0 4px 8px rgba(0, 122, 0, 0.4);
+  width: 100%;
+  text-align: center;
+}
+
+input[type="radio"]:disabled + .option {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* .option:hover:not(.text-success-with-bg):not(.text-danger-with-bg) {
+  background-color: #00b300;
+  transform: scale(1.03);
+} */
+
+/* Botões */
+#botoes button {
+  background-color: #00b300;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 179, 0, 0.6);
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  margin-top: 10px;
+}
+#botoes button:hover:enabled {
+  background-color: #008f00;
+  transform: scale(1.05);
+}
+#botoes button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Resultado final */
+#msgFinal {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.text-success-with-bg {
+  background-color: #28a745 !important;
+  color: white !important;
+  box-shadow: 0 4px 10px #1e7e34;
+}
+
+.text-danger-with-bg {
+  background-color: #dc3545 !important;
+  color: white !important;
+  box-shadow: 0 4px 10px #a71d2a;
+}
+
+.text-warning-with-bg {
+  background-color: #ffc107 !important;
+  color: #333 !important;
+  box-shadow: 0 4px 10px #aa8e00;
+}
