@@ -20,6 +20,9 @@
 </div>
   <p id="feedback" style="text-align: center; font-weight: bold; margin-top: 20px;"></p>
   <div style="text-align: center; margin-top: 20px;">
+    <div id="questoesErradas" style="margin-top: 30px; text-align: center;"></div>
+   <div class = "volts"> <button onclick="voltar()">Voltar ao início</button></div>
+
     <!-- <button onclick="recomecarQuiz()">Refazer Quiz</button> -->
   </div>
 
@@ -89,9 +92,12 @@ function mostrarResultadoGrafico(acertos, total) {
 
  
   document.getElementById('dashboard').style.display = 'block';
+
 }
 
 // faz a dash com o total de acertos comparado com quantidade de perguntas
 mostrarResultadoGrafico();
-
+function voltar() {
+  window.location.href='index.html'
+}
 </script>
