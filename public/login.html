@@ -25,7 +25,7 @@
 
         <div class="botao"> <button onclick="FazerLogin()">Entrar</button></div>
 
-        <p><a href="../cadastro/cadastro.html" onclick="toggle(this)">Não tem conta? Cadastre-se</a></p>
+        <p><a href="../cadastro/cadastro.html" onclick="Cadastra()">Não tem conta? Cadastre-se</a></p>
         <!-- <p><a href="../quiz/quiz.html" onclick="FazerLogin()">vamos para o Quiz!!</a></p> -->
 
     </section>
@@ -46,6 +46,7 @@
                 console.log("FORM LOGIN: ", email);
                 console.log("FORM SENHA: ", senha);
             }
+
             fetch("/usuarios/autenticar", {
                 method: "POST",
                 headers: {
@@ -53,7 +54,7 @@
                 },
                 body: JSON.stringify({
                     email: email,
-                    senha_hash: senha
+                    senha_hash: senha,
                 })
             }).then(function (resposta) {
                 console.log("ESTOU NO THEN DO entrar()!");
@@ -67,7 +68,8 @@
                         console.log(JSON.stringify(json));
                         sessionStorage.EMAIL_USUARIO = json.email;
                         sessionStorage.SENHA_USUARIO = json.senha_hash;
-                        // sessionStorage.ID_USUARIO = json.idUsuario;
+                        sessionStorage.ID_USUARIO = json.idUsuario;
+                        
 
                         alert("Login realizado com sucesso!");
                         window.location = "/EXEMPLO_QUIZZ.html";

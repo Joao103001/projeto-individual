@@ -1,103 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link rel="stylesheet" href="dash.css">
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="dash.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/sessao.js"></script>
 </head>
-<body>
-    <div id="dashboard" style="display: none;">
- <div class= "Ttulo"><h2>Resultado do Quiz</h2></div>
-<div class="graficos">
-  <div class="Pizza">
-    <canvas id="graficoPizza"></canvas>
+
+<body onload="mostrarResultadoGrafico()">
+  <div class="dashboard" id="dashboard" style="display: block;">
+    <div class="container-dash">
+      <div class="Ttulo">
+        <h2>Resultado do Quiz</h2>
+      </div>
+      <div class="graficos">
+        <div class="Pizza">
+          Resultado do Usuário na Rodada
+          <br> <br>
+          <canvas id="graficoPizza"></canvas>
+        </div>
+        <div class="barras1">
+          Histórico das ultimas rodadas do usuário <br> <br>
+        <div id="containerdash"></div>
+          <div id="m"></div>
+          <div id="maiorr"></div>
+          <div id="menorr"></div>
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <p id="feedback" style="text-align: center; font-weight: bold; margin-top: 20px;"></p>
+      <div style="text-align: center; margin-top: 20px;">
+        <div id="questoesErradas" style="margin-top: 30px; text-align: center;"></div>
+        <div class="volts"> <button onclick="voltar()">Voltar ao início</button></div>
+
+        <!-- <button onclick="recomecarQuiz()">Refazer Quiz</button> -->
+      </div>
     </div>
-     <div class="barras">
-    <canvas id="graficoBarras" style="margin-top: 40px;"></canvas>
   </div>
-</div>
-  <p id="feedback" style="text-align: center; font-weight: bold; margin-top: 20px;"></p>
-  <div style="text-align: center; margin-top: 20px;">
-    <div id="questoesErradas" style="margin-top: 30px; text-align: center;"></div>
-   <div class = "volts"> <button onclick="voltar()">Voltar ao início</button></div>
-
-    <!-- <button onclick="recomecarQuiz()">Refazer Quiz</button> -->
-  </div>
-
-</div>
 
 </body>
-</html>
-<script>
-function mostrarResultadoGrafico(acertos, total) {
-    // Pega a pontuação do sessionStorage
-    var acertos = Number(sessionStorage.getItem("acertos"));
-    var total = 5; 
-    var erros = total - acertos;
-    var percentual = Math.round((acertos / total) * 100);
 
-  // gráfico de pizza para dash
-  var canvasPizza = document.getElementById('graficoPizza').getContext('2d');
-  new Chart(canvasPizza, {
-    type: 'doughnut',
-    data: {
-      labels: ['Acertos', 'Erros'],
-      datasets: [{
-        data: [acertos, erros],
-        backgroundColor: ['#4CAF50', '#F44336']
-      }]
-    },
-    options: {
-      plugins: {
-        title: {
-          display: true,
-          text: 'Distribuição de Acertos e Erros'
+</html>
+
+<script>
+  var idUsuario = parseInt(sessionStorage.ID_USUARIO)
+  var acertos = Number(sessionStorage.getItem("acertos"));
+  var total = 5;
+  var erros = total - acertos;
+  var percentual = Math.round((acertos / total) * 100);
+  function mostrarResultadoGrafico() {
+    // Pega a pontuação do sessionStorage
+
+
+    // gráfico de pizza para dash
+    var canvasPizza = document.getElementById('graficoPizza').getContext('2d');
+    new Chart(canvasPizza, {
+      type: 'doughnut',
+      data: {
+        labels: ['Acertos', 'Erros'],
+        datasets: [{
+          data: [acertos, erros],
+          backgroundColor: ['#4CAF50', '#F44336']
+        }]
+      },
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Distribuição de Acertos e Erros'
+          }
         }
       }
-    }
-  });
+    });
 
-  // gráfico de barras para dahs
-  var canvasBarras = document.getElementById('graficoBarras').getContext('2d');
-  new Chart(canvasBarras, {
-    type: 'bar',
-    data: {
-      labels: ['Acertos', 'Erros'],
+    obterDadosGrafico()
+    // plotarGrafico(acertos, idUsuario)
+  }
+
+  function obterDadosGrafico(usuario_id) {
+    var usuario_id = parseInt(sessionStorage.ID_USUARIO);
+
+
+    fetch(`/medidas/ultimas/${usuario_id}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          resposta.reverse();
+
+          plotarGrafico(resposta, usuario_id);
+
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+
+  }
+  // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+  // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+  // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+  var myChartInstance = null;
+  function plotarGrafico(resposta, usuario_id) {
+
+    console.log('iniciando plotagem do gráfico...');
+
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+      labels: labels,
       datasets: [{
-        label: 'Quantidade',
-        data: [acertos, erros],
-        backgroundColor: ['#4CAF50', '#F44336']
-      }]
-    },
-    options: {
-      plugins: {
-        title: {
-          display: true,
-          text: 'Comparação entre Acertos e Erros'
-        },
-        legend: {
-          display: false
-        }
-      },
+        label: 'acertos nas repectivas tentativas',
+        data: [],
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }
+      ]
+    }
+    option = {
+      response: true,
       scales: {
         y: {
           beginAtZero: true,
-          precision: 0
+          suggestedMax: 10
         }
       }
     }
-  });
+      ;
 
- 
-  document.getElementById('dashboard').style.display = 'block';
 
-}
+    console.log('----------------------------------------------')
+    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+    console.log(resposta)
 
-// faz a dash com o total de acertos comparado com quantidade de perguntas
-mostrarResultadoGrafico();
-function voltar() {
-  window.location.href='index.html'
-}
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (let i = 0; i < resposta.length; i++) {
+      var registro = resposta[i];
+      labels.push(`Tentativa ${i + 1}`);
+      dados.datasets[0].data.push(registro.acertosTotal);
+    }
+    console.log('----------------------------------------------')
+    console.log('O gráfico será plotado com os respectivos valores:')
+    console.log('Labels:')
+    console.log(labels)
+    console.log('Dados:')
+    console.log(dados.datasets)
+    console.log('----------------------------------------------')
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: 'line',
+      data: dados,
+      options: option
+    };
+    if (myChartInstance !== null) {
+      myChartInstance.destroy();
+    }
+    // Adicionando gráfico criado em div na tela
+    myChartInstance = new Chart(
+      document.getElementById(`myChart`),
+      config
+    );
+
+    media(resposta)
+    maiormenor(resposta)
+  }
+
+
+  // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+  // buscando a última medida inserida em tabela contendo as capturas, 
+
+  //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+  //     Para ajustar o "select", ajuste o comando sql em src/models
+
+  function media(resposta) {
+    const qtd = resposta.length
+    var mais = 0
+    for (index = 0; index < qtd; index++) {
+      mais = mais + resposta[index].acertosTotal
+    }
+    var mediaa = (mais / qtd).toFixed(2)
+    m.innerHTML = `Média: ${mediaa}`
+  }
+
+  function maiormenor(resposta) {
+
+    var maior = resposta[0].acertosTotal;
+    var menor = resposta[0].acertosTotal;
+
+    for (i = 1; i < resposta.length; i++) {
+      var valor = resposta[i].acertosTotal;
+      if (valor > maior) maior = valor;
+      if (valor < menor) menor = valor;
+    }
+
+    maiorr.innerHTML = `Maior Pontuação: ${maior}`
+    menorr.innerHTML = ` Menor Pontuação: ${menor}`
+  }
+  function voltar() {
+    window.location = "../index.html"
+  }
 </script>

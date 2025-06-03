@@ -119,6 +119,7 @@
             alternativaCorreta: "alternativaC"
         }
     ]
+      var idUsuario = parseInt(sessionStorage.ID_USUARIO)
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
@@ -127,6 +128,7 @@
     let certas = 0
     let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
+    var id = parseInt(sessionStorage.ID_USUARIO)
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
     function onloadEsconder() {
@@ -306,7 +308,8 @@
         // sessionStorage.setItem("erros", erradas);
         window.location = "/Dash.html";
         inserirBD()
-        mostrarResultadoGrafico(pontuacaoFinal, totalPerguntas);
+        mostrarResultadoGrafico() 
+;
     }
 
     function inserirBD() {
@@ -318,7 +321,8 @@
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                corretaServer: pontuacaoFinal
+                corretaServer: pontuacaoFinal,
+                idUsuario: idUsuario
             }),
         })
             .then(function (resposta) {
@@ -329,4 +333,6 @@
                 alert("Erro ao enviar os dados.");
             });
     }
+
+   
 </script>
