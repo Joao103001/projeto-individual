@@ -27,8 +27,7 @@
     <input id="newPassword2" type="password" placeholder="Confirme a senha" />
     </div>
     <div class="botao"> <button onclick="FazerCadastro()">Cadastrar</button></div>
-  
-  <p><a href="../login/login.html">Já tem conta? Faça login</a></p>
+<a href="#" onclick="irParaLogin()">Já tem conta? Faça o login</a>
   
   </section>
  </body>
@@ -197,6 +196,9 @@
     
     alert('Cadastro realizado com sucesso! Faça login.');
     cadastrar();
+  }
+  function irParaLogin() {
+       window.location.href = "login.html";
   }
  </script>
  

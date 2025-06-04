@@ -15,8 +15,8 @@
 
         <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
             <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                <span class="width-fit-content">Veja a pontuação no final<span id="spanCertas"></span></span>
+                <span class="width-fit-content"><span id="spanErradas"></span></span>
             </div>
             <!-- <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
                 <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
@@ -240,7 +240,7 @@
             if (option.checked === true && option.value === respostaQuestaoAtual) {
                 document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
                 pontuacaoFinal++
-                certas++
+                
                 document.getElementById("spanCertas").innerHTML = certas
                 numeroDaQuestaoAtual++
             } else if (option.checked && option.value !== respostaQuestaoAtual) {
@@ -249,7 +249,7 @@
                 document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
                 document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
                 tentativaIncorreta++
-                erradas++
+                
                 document.getElementById("spanErradas").innerHTML = erradas
                 numeroDaQuestaoAtual++
             }
